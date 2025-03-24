@@ -1,0 +1,134 @@
+@font-face {
+    font-family: "denton";
+    src: url("assets/fonts/Denton-Font-Family/Denton\ Test\ Black\ 900.otf") format("opentype");
+    font-weight: 900;
+  }
+  
+  @font-face {
+    font-family: "denton";
+    src: url("assets/fonts/Denton-Font-Family/Denton\ Test\ Bold\ 700.otf") format("opentype");
+    font-weight: 700;
+  }
+  
+  @font-face {
+    font-family: "denton";
+    src: url("assets/fonts/Denton-Font-Family/Denton\ Test\ ExtraBold\ 800.otf") format("opentype");
+    font-weight: 800;
+  }
+  
+  @font-face {
+    font-family: "denton";
+    src: url("assets/fonts/Denton-Font-Family/Denton\ Test\ Light\ 300.otf") format("opentype");
+    font-weight: 300;
+  }
+  
+  @font-face {
+    font-family: "denton";
+    src: url("assets/fonts/Denton-Font-Family/Denton\ Test\ Medium\ 500.otf") format("opentype");
+    font-weight: 500;
+  }
+  
+  @font-face {
+    font-family: "denton";
+    src: url("assets/fonts/Denton-Font-Family/Denton\ Test\ Regular\ 400.otf") format("opentype");
+    font-weight: 400;
+  }
+  
+  @font-face {
+    font-family: "denton";
+    src: url("assets/fonts/Denton-Font-Family/Denton\ Test\ Thin\ 100.otf") format("opentype");
+    font-weight: 100;
+  }
+  
+  /* Gilroy Font Setup */
+  @font-face {
+    font-family: "gilroy-regular";
+    src: url("assets/fonts/gilroy/Gilroy-Regular.ttf") format("truetype");
+    font-weight: 400;
+  }
+  
+  @font-face {
+    font-family: "gilroy-regular";
+    src: url("assets/fonts/gilroy/Gilroy-RegularItalic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: "gilroy-medium";
+    src: url("assets/fonts/gilroy/Gilroy-Medium.ttf") format("truetype");
+    font-weight: 500;
+  }
+  
+  @font-face {
+    font-family: "gilroy-medium";
+    src: url("assets/fonts/gilroy/Gilroy-MediumItalic.ttf") format("truetype");
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: "gilroy-bold";
+    src: url("assets/fonts/gilroy/Gilroy-Bold.ttf") format("truetype");
+    font-weight: 700;
+  }
+  
+  @font-face {
+    font-family: "gilroy";
+    src: url("assets/fonts/gilroy/Gilroy-BoldItalic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: "gilroy";
+    src: url("assets/fonts/gilroy/Gilroy-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+  }
+  
+  @font-face {
+    font-family: "gilroy";
+    src: url("assets/fonts/gilroy/Gilroy-ExtraBoldItalic.ttf") format("truetype");
+    font-weight: 800;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: "gilroy";
+    src: url("assets/fonts/gilroy/Gilroy-Heavy.ttf") format("truetype");
+    font-weight: 900;
+  }
+  
+  @font-face {
+    font-family: "gilroy";
+    src: url("assets/fonts/gilroy/Gilroy-HeavyItalic.ttf") format("truetype");
+    font-weight: 900;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: "gilroy";
+    src: url("assets/fonts/gilroy/Gilroy-Light.ttf") format("truetype");
+    font-weight: 300;
+  }
+  
+  @font-face {
+    font-family: "gilroy";
+    src: url("assets/fonts/gilroy/Gilroy-LightItalic.ttf") format("truetype");
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: "gilroy";
+    src: url("assets/fonts/gilroy/Gilroy-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+  }
+  
+  @font-face {
+    font-family: "gilroy";
+    src: url("assets/fonts/gilroy/Gilroy-SemiBoldItalic.ttf") format("truetype");
+    font-weight: 600;
+    font-style: italic;
+  }
+  
