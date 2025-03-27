@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (entry.isIntersecting && !playedVideos.has(video)) {
           ScrollTrigger.create({
             trigger: video,
-            snap: 0.5
+            snap: 0.5,
           });
 
           video.play();
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.9 }
+    { threshold: 0.7 }
   );
 
   videos.forEach((video, vIndex) => {
@@ -72,41 +72,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const canvas = document.getElementById("video-canvas");
   const ctx = canvas.getContext("2d");
-  const video = document.createElement("video");
 
-  video.src = "./assets/videos/output.mp4";
-  video.crossOrigin = "anonymous";
-  video.muted = true;
-  video.preload = "auto";
-  video.playsInline = true;
-  video.style.objectFit = "cover";
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-  video.addEventListener("loadedmetadata", () => {
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
+  const frameCount = 263;
+  const currentFrame = (index) =>
+    `./assets/images/frame_${(index + 1).toString().padStart(4, "0")}.png`;
 
-    const duration = video.duration;
+  const images = [];
+  const cardsForAnimation = {
+    frame: 0,
+  };
 
-    gsap.to(video, {
-      currentTime: duration + 1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: canvas,
-        scrub: true,
-        start: "top top",
-        marker: true,
-        end: () => `+=${window.innerHeight * 6}`,
-      },
-      onUpdate: render,
-    });
+  for (let i = 0; i < frameCount; i++) {
+    const img = new Image();
+    img.src = currentFrame(i);
+    images.push(img);
+  }
 
-    function render() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    }
-
-    if (video.requestVideoFrameCallback) {
-      video.requestVideoFrameCallback(renderFrame);
-    }
+  gsap.to(cardsForAnimation, {
+    frame: frameCount - 1,
+    ease: "none",
+    snap: "frame",
+    scrollTrigger: {
+      trigger: canvas,
+      start: "top top",
+      end: () => `+=${window.innerHeight * 7}`,
+      scrub: true,
+    },
+    onUpdate: render
   });
+
+  images[0].onload = render;
+
+  function render() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const img = images[cardsForAnimation.frame];
+
+    // Ensure the image is loaded before rendering
+    if (!img.complete) return;
+
+    // Calculate aspect ratios
+    const imgAspect = img.width / img.height;
+    const canvasAspect = canvas.width / canvas.height;
+
+    let drawWidth, drawHeight, offsetX, offsetY;
+
+    if (imgAspect > canvasAspect) {
+      // Image is wider than canvas, scale by height and crop width
+      drawHeight = canvas.height;
+      drawWidth = canvas.height * imgAspect;
+      offsetX = (canvas.width - drawWidth) / 2; // Center horizontally
+      offsetY = 0;
+    } else {
+      // Image is taller than canvas, scale by width and crop height
+      drawWidth = canvas.width;
+      drawHeight = canvas.width / imgAspect;
+      offsetX = 0;
+      offsetY = (canvas.height - drawHeight) / 2; // Center vertically
+    }
+
+    ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+  }
 });
